@@ -1,0 +1,14 @@
+<section id="skills" class="section tech-stack">
+  <div class="container">
+    <h2 class="section-title">Technical Arsenal</h2>
+    <div class="stack-grid">
+      <div *ngFor="let stack of techStack" class="stack-card">
+        <div class="stack-icon">{{ stack.icon }}</div>
+        <h3>{{ stack.category }}</h3>
+        <div class="technologies">
+          <span *ngFor="let tech of stack.technologies" class="tech-badge">{{ tech }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-subtitle">Have a project in mind or just want to discuss the future of AI and Flutter? Feel free to reach out!</p>
+    
+    <div class="contact-content">
+      <div class="contact-info-grid">
+        <div class="contact-box">
+          <div class="contact-icon">📧</div>
+          <h4>Email</h4>
+          <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+        </div>
+        
+        <div class="contact-box">
+          <div class="contact-icon">📱</div>
+          <h4>Phone</h4>
+          <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a>
+        </div>
+        
+        <div class="contact-box">
+          <div class="contact-icon">📍</div>
+          <h4>Location</h4>
+          <p>{{ contact.location }}</p>
+        </div>
+      </div>
+      
+      <button class="cta-button">START A PROJECT</button>
+    </div>
+  </div>
+</section>

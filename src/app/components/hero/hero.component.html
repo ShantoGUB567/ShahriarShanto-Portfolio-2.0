@@ -1,0 +1,53 @@
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="profile-card">
+          <img [src]="data.profileImage" [alt]="data.name" class="profile-image">
+          <div class="profile-info">
+            <span class="availability">
+              <span class="status-dot"></span>
+              Available for work
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <h1 class="hero-title">
+          <span class="greeting">Al Shahriar</span>
+          <span class="name highlight">Ahommed</span>
+          <span class="name">Shanto.</span>
+        </h1>
+        
+        <p class="hero-subtitle">{{ data.title }}</p>
+        <p class="hero-description">{{ data.subtitle }}</p>
+
+        <div class="social-links">
+          <a *ngFor="let social of socials" 
+             [href]="social.url" 
+             target="_blank"
+             class="social-icon"
+             [title]="social.label">
+            {{ social.icon.charAt(0).toUpperCase() }}
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <span>{{ contact.email }}</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <span>{{ contact.phone }}</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>{{ contact.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

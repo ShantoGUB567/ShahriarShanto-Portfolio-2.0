@@ -1,0 +1,15 @@
+<section id="leadership" class="section achievements">
+  <div class="container">
+    <h2 class="section-title">Beyond the Code</h2>
+    <div class="achievements-grid">
+      <div *ngFor="let achievement of achievements" class="achievement-card">
+        <div class="achievement-icon">{{ achievement.icon }}</div>
+        <div class="achievement-content">
+          <h3>{{ achievement.title }}</h3>
+          <p class="organization">{{ achievement.organization }}</p>
+          <p class="description">{{ achievement.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

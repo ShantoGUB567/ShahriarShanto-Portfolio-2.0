@@ -1,0 +1,44 @@
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.stack-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stack-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.stack-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.stack-card h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tech-badge {
+  background: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

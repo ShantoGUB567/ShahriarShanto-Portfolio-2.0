@@ -1,0 +1,16 @@
+<section id="education" class="section education">
+  <div class="container">
+    <h2 class="section-title">Academic Foundation</h2>
+    <div class="education-grid">
+      <div *ngFor="let edu of education" class="edu-card">
+        <div class="edu-header">
+          <h3>{{ edu.degree }}</h3>
+          <span class="period">{{ edu.period }}</span>
+        </div>
+        <p class="institution">{{ edu.institution }}</p>
+        <p class="institution">{{ edu.address }}</p>
+        <p *ngIf="edu.gpa" class="gpa">{{ edu.gpa }}</p>
+      </div>
+    </div>
+  </div>
+</section>
