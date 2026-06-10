@@ -75,8 +75,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
     With a strong passion for software engineering and continuous learning, I constantly explore modern technologies, frameworks, and development practices to improve both product quality and development efficiency. I am particularly interested in creating responsive user experiences, maintaining clean and maintainable codebases, and developing systems that can scale effectively in real-world environments.
 
     Beyond technical development, I value problem-solving, teamwork, and adaptability. I enjoy collaborating on innovative projects, learning from new challenges, and transforming ideas into impactful digital products. My goal is to grow as a versatile full stack developer while building modern applications that deliver meaningful experiences and long-term value to users and businesses.`,
-    profileImage: 'assets/profile.jpg',
-    resumeUrl: 'assets/resume.pdf'
+    profileImage: '/assets/profile.jpg',
+    resumeUrl: '/assets/resume.pdf'
   },
 
   // Personal ContactInfo
@@ -88,14 +88,14 @@ export const PORTFOLIO_DATA: PortfolioData = {
 
   // SocialLink 
   socials: [
-    { icon: 'assets/media_icons/github.png', url: 'https://github.com/ShantoGUB567', label: 'GitHub' },
-    { icon: 'assets/media_icons/linkedin.png', url: 'https://www.linkedin.com/in/alshahriarshanto/', label: 'LinkedIn' },
-    { icon: 'assets/media_icons/facebook.png', url: 'https://www.facebook.com/shanto.4916', label: 'facebook' },
-    // { icon: 'assets/media_icons/instagram.png', url: 'https://www.instagram.com/alshahriarshanto/', label: 'instagram' },
-    // { icon: 'assets/media_icons/twitter.png', url: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: 'assets/media_icons/email.png', url: 'mailto:alshahriarahommedshanto@gmail.com', label: 'Email' },
-    { icon: 'assets/media_icons/whatsapp.png', url: 'https://wa.me/qr/OPSAGQFNRKHFA1', label: 'whatsapp' },
-    // { icon: 'assets/media_icons/website.png', url: 'https://yourwebsite.com', label: 'Website' }
+    { icon: '/assets/media_icons/github.png', url: 'https://github.com/ShantoGUB567', label: 'GitHub' },
+    { icon: '/assets/media_icons/linkedin.png', url: 'https://www.linkedin.com/in/alshahriarshanto/', label: 'LinkedIn' },
+    { icon: '/assets/media_icons/facebook.png', url: 'https://www.facebook.com/shanto.4916', label: 'facebook' },
+    // { icon: '/assets/media_icons/instagram.png', url: 'https://www.instagram.com/alshahriarshanto/', label: 'instagram' },
+    // { icon: '/assets/media_icons/twitter.png', url: 'https://twitter.com/yourusername', label: 'Twitter' },
+    { icon: '/assets/media_icons/email.png', url: 'mailto:alshahriarahommedshanto@gmail.com', label: 'Email' },
+    { icon: '/assets/media_icons/whatsapp.png', url: 'https://wa.me/qr/OPSAGQFNRKHFA1', label: 'whatsapp' },
+    // { icon: '/assets/media_icons/website.png', url: 'https://yourwebsite.com', label: 'Website' }
   ],
 
   // Work experience
@@ -151,21 +151,21 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       title: 'Green Campus',
       description: 'A comprehensive campus management platform for GUB students including course schedules, attendance tracking and cafeteria...',
-      image: 'assets/projects/green-campus.jpg',
+      image: '/assets/projects/green-campus.jpg',
       technologies: ['Flutter', 'Firebase', 'REST API'],
       link: 'https://github.com/yourusername/green-campus'
     },
     {
       title: 'AI Classroom Assistant',
       description: 'A flutter-based classroom assistant powered by Google Gemini AI integrating real-time AI assistance to streamline...',
-      image: 'assets/projects/ai-assistant.jpg',
+      image: '/assets/projects/ai-assistant.jpg',
       technologies: ['Flutter', 'AI/ML', 'Google Gemini'],
       link: 'https://github.com/yourusername/ai-assistant'
     },
     {
       title: 'Billing Infrastructure',
       description: 'A custom point-of-sales app built using Rivod architecture for inventory management...',
-      image: 'assets/projects/billing.jpg',
+      image: '/assets/projects/billing.jpg',
       technologies: ['Flutter', 'Riverpod', 'SQLite'],
       link: 'https://github.com/yourusername/billing'
     }
