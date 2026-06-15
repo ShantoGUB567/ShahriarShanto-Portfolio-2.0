@@ -75,8 +75,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
     With a strong passion for software engineering and continuous learning, I constantly explore modern technologies, frameworks, and development practices to improve both product quality and development efficiency. I am particularly interested in creating responsive user experiences, maintaining clean and maintainable codebases, and developing systems that can scale effectively in real-world environments.
 
     Beyond technical development, I value problem-solving, teamwork, and adaptability. I enjoy collaborating on innovative projects, learning from new challenges, and transforming ideas into impactful digital products. My goal is to grow as a versatile full stack developer while building modern applications that deliver meaningful experiences and long-term value to users and businesses.`,
-    profileImage: '/assets/profile.jpg',
-    resumeUrl: '/assets/resume.pdf'
+    profileImage: '/assets/profile/profile.jpg',
+    resumeUrl: '/assets/profile/resume.pdf'
   },
 
   // Personal ContactInfo
@@ -126,7 +126,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       degree: 'B.Sc in Computer Science and Engineering (CSE)',
       institution: 'Green University of Bangladesh',
-      period: '2022-2026', 
+      period: '2022-2026',
       address: 'Purbachal American City, Rupganj, Narayanganj',
       gpa: 'CGPA: 3.44'
     },
