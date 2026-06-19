@@ -3,7 +3,7 @@
     <h2 class="section-title">Beyond the Code</h2>
     <div class="achievements-grid">
       <div *ngFor="let achievement of achievements" class="achievement-card">
-        <div class="achievement-icon">{{ achievement.icon }}</div>
+        <img [src]="achievement.icon" [alt]="achievement.title" class="achievement-img">
         <div class="achievement-content">
           <h3>{{ achievement.title }}</h3>
           <p class="organization">{{ achievement.organization }}</p>

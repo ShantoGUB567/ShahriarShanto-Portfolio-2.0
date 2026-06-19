@@ -98,26 +98,32 @@ export const PORTFOLIO_DATA: PortfolioData = {
     // { icon: '/assets/media_icons/website.png', url: 'https://yourwebsite.com', label: 'Website' }
   ],
 
-  // Work experience
+  // Work Experience
   experience: [
     {
       period: 'November 2025 - Present',
       title: 'Flutter Developer',
       company: 'Softvence Omega, Betopia Group',
-      description: 'Coordinating technical aspects for academic events and managing large-scale Flutter conference for content preparation for various programs and...',
+      description: 'Developing and maintaining cross-platform mobile applications using Flutter, focusing on scalable architecture, clean code practices, API integration, state management, and performance optimization. Collaborating with teams to deliver user-friendly, responsive, and production-ready applications while contributing to project planning and feature implementation.',
       current: true
     },
     {
-      period: 'Dec 2023 - Present',
-      title: 'Technical Support & Event Manager',
-      company: 'Green University IT Support',
-      description: 'Coordinating technical aspects for academic events and managing large-scale Flutter programs and...'
+      period: 'October 2025 - November 2025',
+      title: 'Flutter Developer Intern',
+      company: 'Zensoft Lab',
+      description: 'Learned and worked on Flutter fundamentals including UI development, widget structuring, state management basics, project architecture, and folder structure organization. Gained hands-on experience in building responsive interfaces and understanding industry-standard development workflows.'
     },
     {
-      period: 'Dec 2023 - Present',
+      period: 'June 2024 - January 2026',
+      title: 'Technical Support & Event Manager Intern',
+      company: 'Center of Excellence for Teaching and Learning (CETL)',
+      description: 'Managed technical support operations for academic and institutional programs, coordinated event logistics, handled digital systems setup, and ensured smooth execution of workshops, seminars, and training sessions. Worked closely with faculty and management to support educational activities efficiently.'
+    },
+    {
+      period: 'April 2024 - December 2025',
       title: 'Assistant Invigilator',
-      company: 'NAT Test (Nihongo Achievement Test)',
-      description: 'Coordinating technical aspects for academic events and managing large-scale Flutter programs and...'
+      company: 'NAT Test (Nihongo Achievement Test), Green University of Bangladesh',
+      description: 'Assisted in organizing and supervising examination sessions, ensuring proper conduct of test procedures, maintaining discipline, and supporting administrative tasks for smooth examination management.'
     }
   ],
 
@@ -202,19 +208,31 @@ export const PORTFOLIO_DATA: PortfolioData = {
       title: 'GUCC 2025 General Secretary',
       organization: 'Green University Computer Club',
       description: 'Leading a dynamic team of coding enthusiasts by organizing tech events, workshops and programming competitions.',
-      icon: 'trophy'
+      icon: '/assets/achievements/trophy.png'
     },
     {
       title: 'Major Event Milestones',
       organization: 'GUB Events',
       description: 'Successfully led major GUCC V2C event [Takes Coders Battles] and organized 200+ students',
-      icon: 'star'
+      icon: '/assets/achievements/star.png'
     },
     {
       title: 'LEO Club Green',
       organization: 'GUB LEO Club',
       description: 'Contributing to community service initiatives and social responsibility programs...',
-      icon: 'heart'
+      icon: '/assets/achievements/heart.png'
+    },
+    {
+      title: 'App Developer & Publisher',
+      organization: 'Google Play Store',
+      description: 'Published 3+ cross-platform mobile apps built with Flutter, gaining over 1,000+ active users collectively.',
+      icon: '/assets/achievements/rocket.png'
+    },
+    {
+      title: 'Coding Hackathon Winner',
+      organization: 'National Programming Contests',
+      description: 'Secured top positions in regional university programming contests and tech hackathons, showcasing strong Dart and Flutter prototyping skills.',
+      icon: '/assets/achievements/medal.png'
     }
   ]
 };
