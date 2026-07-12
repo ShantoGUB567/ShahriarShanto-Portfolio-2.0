@@ -110,6 +110,17 @@
   box-shadow: 0 5px 15px rgba(61, 217, 179, 0.3);
 }
 
+.social-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+.social-icon:hover .social-img {
+  filter: brightness(0);
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
