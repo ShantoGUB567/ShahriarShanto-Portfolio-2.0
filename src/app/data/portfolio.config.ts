@@ -81,7 +81,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
 
   // Personal ContactInfo
   contact: {
-    email: 'alshahriarahommedshanto@gmail.com',
+    email: 'me.shahriarshanto@gmail.com',
     phone: '+880 1521582378',
     location: 'Mirpur-14, Dhaka, Bangladesh'
   },
