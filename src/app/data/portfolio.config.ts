@@ -29,9 +29,17 @@ export interface Education {
 export interface Project {
   title: string;
   description: string;
+  longDescription?: string;
   image: string;
   technologies?: string[];
-  link?: string;
+  links?: {
+    live?: string;
+    playStore?: string;
+    appStore?: string;
+    testFlight?: string;
+    openTesting?: string;
+    github?: string;
+  };
 }
 
 export interface Achievement {
@@ -93,7 +101,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     { icon: '/assets/media_icons/facebook.png', url: 'https://www.facebook.com/shanto.4916', label: 'facebook' },
     // { icon: '/assets/media_icons/instagram.png', url: 'https://www.instagram.com/alshahriarshanto/', label: 'instagram' },
     // { icon: '/assets/media_icons/twitter.png', url: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: '/assets/media_icons/email.png', url: 'mailto:alshahriarahommedshanto@gmail.com', label: 'Email' },
+    { icon: '/assets/media_icons/email.png', url: 'mailto:me.shahriarshanto@gmail.com', label: 'Email' },
     { icon: '/assets/media_icons/whatsapp.png', url: 'https://wa.me/qr/OPSAGQFNRKHFA1', label: 'whatsapp' },
     // { icon: '/assets/media_icons/website.png', url: 'https://yourwebsite.com', label: 'Website' }
   ],
@@ -155,25 +163,49 @@ export const PORTFOLIO_DATA: PortfolioData = {
   // Personal Project
   projects: [
     {
+      title: 'NW RMG Website',
+      description: 'A professional business website for NW RMG, showcasing apparel products, sustainable manufacturing processes...',
+      longDescription: 'NW RMG Website is a highly responsive web application designed for a premium Ready-Made Garments (RMG) manufacturer. It allows international buyers to explore clothing categories, inspect production certifications, view facilities, and submit detailed order inquiries. Built to load fast and rank well on search engines.',
+      image: '/assets/projects/nw-rmg.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'MongoDB'],
+      links: {
+        live: 'https://www.nw-rmg.com/',
+        github: 'https://github.com/ShantoGUB567/nw-rmg'
+      }
+    },
+    {
       title: 'Green Campus',
-      description: 'A comprehensive campus management platform for GUB students including course schedules, attendance tracking and cafeteria...',
+      description: 'A campus utility portal for GUB students offering class routines, results tracking, and cafeteria ordering...',
+      longDescription: 'Green Campus is a comprehensive mobile application designed specifically for students at Green University of Bangladesh. It consolidates crucial student portal features such as current schedules, attendance visualizer, exam routines, direct portal results, and a digital cafeteria menu with ordering features into one native application.',
       image: '/assets/projects/green-campus.jpg',
-      technologies: ['Flutter', 'Firebase', 'REST API'],
-      link: 'https://github.com/yourusername/green-campus'
+      technologies: ['Flutter', 'Dart', 'Firebase', 'REST API', 'GetX'],
+      links: {
+        github: 'https://github.com/ShantoGUB567/green-campus',
+        playStore: 'https://play.google.com/store/apps/details?id=com.gub.greencampus',
+        openTesting: 'https://play.google.com/apps/testing/com.gub.greencampus'
+      }
     },
     {
       title: 'AI Classroom Assistant',
-      description: 'A flutter-based classroom assistant powered by Google Gemini AI integrating real-time AI assistance to streamline...',
+      description: 'An AI-powered academic assistant leveraging Google Gemini for summaries, search, and note translation...',
+      longDescription: 'AI Classroom Assistant is a state-of-the-art mobile application that integrates Google Gemini AI to assist students and educators in their daily academic tasks. It features real-time OCR for scanning physical handouts, automated summaries, dynamic quiz generation, and quick references. Built using Clean Architecture.',
       image: '/assets/projects/ai-assistant.jpg',
-      technologies: ['Flutter', 'AI/ML', 'Google Gemini'],
-      link: 'https://github.com/yourusername/ai-assistant'
+      technologies: ['Flutter', 'Dart', 'Google Gemini AI', 'Riverpod', 'Hive'],
+      links: {
+        github: 'https://github.com/ShantoGUB567/ai-assistant',
+        testFlight: 'https://testflight.apple.com/join/ai-classroom-assistant'
+      }
     },
     {
       title: 'Billing Infrastructure',
-      description: 'A custom point-of-sales app built using Rivod architecture for inventory management...',
+      description: 'An offline POS application utilizing Riverpod and SQLite for sales logging and receipt generation...',
+      longDescription: 'Billing Infrastructure is a feature-rich, offline-first Point of Sale (POS) and inventory tracker built for local retail shops. It supports inventory cataloging, sales analytics dashboards, low-stock warnings, barcode scanning simulation, and immediate PDF invoice generation. Using SQLite, it is fast and requires zero network access.',
       image: '/assets/projects/billing.jpg',
-      technologies: ['Flutter', 'Riverpod', 'SQLite'],
-      link: 'https://github.com/yourusername/billing'
+      technologies: ['Flutter', 'Dart', 'Riverpod', 'SQLite', 'PDF Library'],
+      links: {
+        github: 'https://github.com/ShantoGUB567/billing',
+        appStore: 'https://apps.apple.com/app/billing-infrastructure'
+      }
     }
   ],
   techStack: [

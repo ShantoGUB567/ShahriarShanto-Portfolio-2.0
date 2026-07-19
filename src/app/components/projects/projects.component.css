@@ -1,25 +1,65 @@
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+.projects-slider {
+  display: flex;
   gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  cursor: grab;
+  padding: 1.5rem 0.5rem;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  scroll-behavior: smooth;
+  margin-top: 1rem;
+}
+
+.projects-slider::-webkit-scrollbar {
+  display: none; /* Hide scrollbar WebKit */
+}
+
+.projects-slider.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+
+.slider-hint {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
 }
 
 .project-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
   background: var(--bg-card);
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    flex: 0 0 280px; /* Slightly narrower cards on small phones */
+  }
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px rgba(61, 217, 179, 0.15);
+  border-color: rgba(61, 217, 179, 0.4);
 }
 
 .project-image {
   position: relative;
-  height: 200px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Ensures image poster is always square */
   background: var(--bg-secondary);
   overflow: hidden;
 }
@@ -38,12 +78,13 @@
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(13, 13, 13, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
 .project-card:hover .project-overlay {
@@ -53,9 +94,17 @@
 .project-link {
   background: var(--primary-color);
   color: var(--bg-primary);
-  padding: 0.7rem 1.5rem;
-  border-radius: 5px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
   font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(61, 217, 179, 0.4);
+}
+
+.project-link:hover {
+  background: #2bc59d;
+  transform: scale(1.05);
 }
 
 .project-content {
@@ -65,12 +114,18 @@
 .project-content h3 {
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
+  color: var(--text-primary);
 }
 
 .project-content p {
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tech-tags {
@@ -84,5 +139,265 @@
   color: var(--primary-color);
   padding: 0.3rem 0.8rem;
   border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(61, 217, 179, 0.15);
+}
+
+/* Glassmorphism Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease-out;
+  padding: 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Card */
+.modal-card {
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-card::-webkit-scrollbar-thumb {
+  background: rgba(61, 217, 179, 0.3);
+  border-radius: 3px;
+}
+
+.modal-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(61, 217, 179, 0.6);
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: rotate(90deg);
+  color: var(--primary-color);
+}
+
+/* Modal Body Layout */
+.modal-body {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 2.5rem;
+  padding: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .modal-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  .modal-card {
+    max-height: 85vh;
+  }
+}
+
+/* Modal Image */
+.modal-image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Always square poster inside modal */
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Modal Details Content */
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.modal-description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-short-desc {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--primary-color);
+  line-height: 1.5;
+}
+
+.modal-long-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.modal-tech-section h4,
+.modal-links-section h4 {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+/* Project Links */
+.links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
   font-size: 0.85rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.link-btn .link-icon {
+  flex-shrink: 0;
+}
+
+/* Specific Link Button Styles */
+.live-link {
+  background: rgba(61, 217, 179, 0.12);
+  color: var(--primary-color);
+  border-color: rgba(61, 217, 179, 0.3);
+}
+
+.live-link:hover {
+  background: var(--primary-color);
+  color: var(--bg-primary);
+}
+
+.github-link {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+.github-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.playstore-link {
+  background: rgba(10, 186, 115, 0.12);
+  color: #0aba73;
+  border-color: rgba(10, 186, 115, 0.25);
+}
+
+.playstore-link:hover {
+  background: #0aba73;
+  color: white;
+}
+
+.appstore-link {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.appstore-link:hover {
+  background: white;
+  color: black;
+}
+
+.testflight-link {
+  background: rgba(0, 122, 255, 0.12);
+  color: #007aff;
+  border-color: rgba(0, 122, 255, 0.25);
+}
+
+.testflight-link:hover {
+  background: #007aff;
+  color: white;
+}
+
+.opentesting-link {
+  background: rgba(255, 170, 0, 0.12);
+  color: #ffaa00;
+  border-color: rgba(255, 170, 0, 0.25);
+}
+
+.opentesting-link:hover {
+  background: #ffaa00;
+  color: black;
 }
