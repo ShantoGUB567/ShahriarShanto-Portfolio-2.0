@@ -49,10 +49,10 @@ export interface Achievement {
   icon: string;
 }
 
-export interface TechStack {
+export interface Skill {
+  name: string;
   category: string;
-  icon: string;
-  technologies: string[];
+  iconType: string;
 }
 
 export interface PortfolioData {
@@ -69,7 +69,7 @@ export interface PortfolioData {
   experience: Experience[];
   education: Education[];
   projects: Project[];
-  techStack: TechStack[];
+  skills: Skill[];
   achievements: Achievement[];
 }
 
@@ -208,32 +208,32 @@ export const PORTFOLIO_DATA: PortfolioData = {
       }
     }
   ],
-  techStack: [
-    {
-      category: 'Frameworks',
-      icon: 'frameworks',
-      technologies: ['Flutter/Dart', 'Python', 'Java', 'C']
-    },
-    {
-      category: 'Programming',
-      icon: 'code',
-      technologies: ['Flutter/Dart', 'Python', 'Java', 'C']
-    },
-    {
-      category: 'Web & Scripting',
-      icon: 'web',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'NodeJS']
-    },
-    {
-      category: 'Engineering Tools',
-      icon: 'tools',
-      technologies: ['Git', 'Firebase', 'Postman', 'Figma']
-    },
-    {
-      category: 'Databases',
-      icon: 'database',
-      technologies: ['MongoDB', 'Hive', 'MySQL Builder', 'PostgreSQL']
-    }
+  skills: [
+    { name: 'C', category: 'languages', iconType: 'c' },
+    { name: 'C++', category: 'languages', iconType: 'cpp' },
+    { name: 'Java', category: 'languages', iconType: 'java' },
+    { name: 'Python', category: 'languages', iconType: 'python' },
+    { name: 'Dart', category: 'languages', iconType: 'dart' },
+    { name: 'Flutter', category: 'mobile', iconType: 'flutter' },
+    { name: 'Go', category: 'backend', iconType: 'go' },
+    { name: 'Angular', category: 'frontend', iconType: 'angular' },
+    { name: 'HTML', category: 'frontend', iconType: 'html' },
+    { name: 'CSS', category: 'frontend', iconType: 'css' },
+    { name: 'JavaScript', category: 'frontend', iconType: 'javascript' },
+    { name: 'Git', category: 'tools', iconType: 'git' },
+    { name: 'GitHub', category: 'tools', iconType: 'github' },
+    { name: 'GitLab', category: 'tools', iconType: 'gitlab' },
+    { name: 'Firebase', category: 'databases', iconType: 'firebase' },
+    { name: 'Supabase', category: 'databases', iconType: 'supabase' },
+    { name: 'MySQL', category: 'databases', iconType: 'mysql' },
+    { name: 'SQLite', category: 'databases', iconType: 'sqlite' },
+    { name: 'App Store', category: 'tools', iconType: 'appstore' },
+    { name: 'Google Play', category: 'tools', iconType: 'googleplay' },
+    { name: 'Bash', category: 'tools', iconType: 'bash' },
+    { name: 'Postman', category: 'tools', iconType: 'postman' },
+    { name: 'VS Code', category: 'tools', iconType: 'vscode' },
+    { name: 'Android Studio', category: 'tools', iconType: 'androidstudio' },
+    { name: 'Xcode', category: 'tools', iconType: 'xcode' }
   ],
   achievements: [
     {
