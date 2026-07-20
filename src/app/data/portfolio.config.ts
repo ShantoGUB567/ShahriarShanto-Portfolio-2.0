@@ -29,22 +29,31 @@ export interface Education {
 export interface Project {
   title: string;
   description: string;
+  longDescription?: string;
   image: string;
   technologies?: string[];
-  link?: string;
+  links?: {
+    live?: string;
+    playStore?: string;
+    appStore?: string;
+    testFlight?: string;
+    openTesting?: string;
+    github?: string;
+  };
 }
 
 export interface Achievement {
   title: string;
   organization: string;
-  description: string;
-  icon: string;
+  period: string;
+  description?: string;
+  icon?: string | null;
 }
 
-export interface TechStack {
+export interface Skill {
+  name: string;
   category: string;
-  icon: string;
-  technologies: string[];
+  iconType: string;
 }
 
 export interface PortfolioData {
@@ -61,7 +70,7 @@ export interface PortfolioData {
   experience: Experience[];
   education: Education[];
   projects: Project[];
-  techStack: TechStack[];
+  skills: Skill[];
   achievements: Achievement[];
 }
 
@@ -93,7 +102,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     { icon: '/assets/media_icons/facebook.png', url: 'https://www.facebook.com/shanto.4916', label: 'facebook' },
     // { icon: '/assets/media_icons/instagram.png', url: 'https://www.instagram.com/alshahriarshanto/', label: 'instagram' },
     // { icon: '/assets/media_icons/twitter.png', url: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: '/assets/media_icons/email.png', url: 'mailto:alshahriarahommedshanto@gmail.com', label: 'Email' },
+    { icon: '/assets/media_icons/email.png', url: 'mailto:me.shahriarshanto@gmail.com', label: 'Email' },
     { icon: '/assets/media_icons/whatsapp.png', url: 'https://wa.me/qr/OPSAGQFNRKHFA1', label: 'whatsapp' },
     // { icon: '/assets/media_icons/website.png', url: 'https://yourwebsite.com', label: 'Website' }
   ],
@@ -155,84 +164,141 @@ export const PORTFOLIO_DATA: PortfolioData = {
   // Personal Project
   projects: [
     {
+      title: 'NW RMG Website',
+      description: 'A professional business website for NW RMG, showcasing apparel products, sustainable manufacturing processes...',
+      longDescription: 'NW RMG Website is a highly responsive web application designed for a premium Ready-Made Garments (RMG) manufacturer. It allows international buyers to explore clothing categories, inspect production certifications, view facilities, and submit detailed order inquiries. Built to load fast and rank well on search engines.',
+      image: '/assets/projects/nw-rmg.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'MongoDB'],
+      links: {
+        live: 'https://www.nw-rmg.com/',
+        github: 'https://github.com/ShantoGUB567/nw-rmg'
+      }
+    },
+    {
       title: 'Green Campus',
-      description: 'A comprehensive campus management platform for GUB students including course schedules, attendance tracking and cafeteria...',
+      description: 'A campus utility portal for GUB students offering class routines, results tracking, and cafeteria ordering...',
+      longDescription: 'Green Campus is a comprehensive mobile application designed specifically for students at Green University of Bangladesh. It consolidates crucial student portal features such as current schedules, attendance visualizer, exam routines, direct portal results, and a digital cafeteria menu with ordering features into one native application.',
       image: '/assets/projects/green-campus.jpg',
-      technologies: ['Flutter', 'Firebase', 'REST API'],
-      link: 'https://github.com/yourusername/green-campus'
+      technologies: ['Flutter', 'Dart', 'Firebase', 'REST API', 'GetX'],
+      links: {
+        github: 'https://github.com/ShantoGUB567/green-campus',
+        playStore: 'https://play.google.com/store/apps/details?id=com.gub.greencampus',
+        openTesting: 'https://play.google.com/apps/testing/com.gub.greencampus'
+      }
     },
     {
       title: 'AI Classroom Assistant',
-      description: 'A flutter-based classroom assistant powered by Google Gemini AI integrating real-time AI assistance to streamline...',
+      description: 'An AI-powered academic assistant leveraging Google Gemini for summaries, search, and note translation...',
+      longDescription: 'AI Classroom Assistant is a state-of-the-art mobile application that integrates Google Gemini AI to assist students and educators in their daily academic tasks. It features real-time OCR for scanning physical handouts, automated summaries, dynamic quiz generation, and quick references. Built using Clean Architecture.',
       image: '/assets/projects/ai-assistant.jpg',
-      technologies: ['Flutter', 'AI/ML', 'Google Gemini'],
-      link: 'https://github.com/yourusername/ai-assistant'
+      technologies: ['Flutter', 'Dart', 'Google Gemini AI', 'Riverpod', 'Hive'],
+      links: {
+        github: 'https://github.com/ShantoGUB567/ai-assistant',
+        testFlight: 'https://testflight.apple.com/join/ai-classroom-assistant'
+      }
     },
     {
       title: 'Billing Infrastructure',
-      description: 'A custom point-of-sales app built using Rivod architecture for inventory management...',
+      description: 'An offline POS application utilizing Riverpod and SQLite for sales logging and receipt generation...',
+      longDescription: 'Billing Infrastructure is a feature-rich, offline-first Point of Sale (POS) and inventory tracker built for local retail shops. It supports inventory cataloging, sales analytics dashboards, low-stock warnings, barcode scanning simulation, and immediate PDF invoice generation. Using SQLite, it is fast and requires zero network access.',
       image: '/assets/projects/billing.jpg',
-      technologies: ['Flutter', 'Riverpod', 'SQLite'],
-      link: 'https://github.com/yourusername/billing'
+      technologies: ['Flutter', 'Dart', 'Riverpod', 'SQLite', 'PDF Library'],
+      links: {
+        github: 'https://github.com/ShantoGUB567/billing',
+        appStore: 'https://apps.apple.com/app/billing-infrastructure'
+      }
     }
   ],
-  techStack: [
-    {
-      category: 'Frameworks',
-      icon: 'frameworks',
-      technologies: ['Flutter/Dart', 'Python', 'Java', 'C']
-    },
-    {
-      category: 'Programming',
-      icon: 'code',
-      technologies: ['Flutter/Dart', 'Python', 'Java', 'C']
-    },
-    {
-      category: 'Web & Scripting',
-      icon: 'web',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'NodeJS']
-    },
-    {
-      category: 'Engineering Tools',
-      icon: 'tools',
-      technologies: ['Git', 'Firebase', 'Postman', 'Figma']
-    },
-    {
-      category: 'Databases',
-      icon: 'database',
-      technologies: ['MongoDB', 'Hive', 'MySQL Builder', 'PostgreSQL']
-    }
+  skills: [
+    { name: 'C', category: 'languages', iconType: 'c' },
+    { name: 'C++', category: 'languages', iconType: 'cpp' },
+    { name: 'Java', category: 'languages', iconType: 'java' },
+    { name: 'Python', category: 'languages', iconType: 'python' },
+    { name: 'Dart', category: 'languages', iconType: 'dart' },
+    { name: 'Flutter', category: 'mobile', iconType: 'flutter' },
+    { name: 'Go', category: 'backend', iconType: 'go' },
+    { name: 'Angular', category: 'frontend', iconType: 'angular' },
+    { name: 'HTML', category: 'frontend', iconType: 'html' },
+    { name: 'CSS', category: 'frontend', iconType: 'css' },
+    { name: 'JavaScript', category: 'frontend', iconType: 'javascript' },
+    { name: 'Git', category: 'tools', iconType: 'git' },
+    { name: 'GitHub', category: 'tools', iconType: 'github' },
+    { name: 'GitLab', category: 'tools', iconType: 'gitlab' },
+    { name: 'Firebase', category: 'databases', iconType: 'firebase' },
+    { name: 'Supabase', category: 'databases', iconType: 'supabase' },
+    { name: 'MySQL', category: 'databases', iconType: 'mysql' },
+    { name: 'SQLite', category: 'databases', iconType: 'sqlite' },
+    { name: 'App Store', category: 'tools', iconType: 'appstore' },
+    { name: 'Google Play', category: 'tools', iconType: 'googleplay' },
+    { name: 'Bash', category: 'tools', iconType: 'bash' },
+    { name: 'Postman', category: 'tools', iconType: 'postman' },
+    { name: 'VS Code', category: 'tools', iconType: 'vscode' },
+    { name: 'Android Studio', category: 'tools', iconType: 'androidstudio' },
+    { name: 'Xcode', category: 'tools', iconType: 'xcode' }
   ],
   achievements: [
     {
-      title: 'GUCC 2025 General Secretary',
-      organization: 'Green University Computer Club',
-      description: 'Leading a dynamic team of coding enthusiasts by organizing tech events, workshops and programming competitions.',
-      icon: '/assets/achievements/trophy.png'
+      title: 'Joint General Secretary',
+      organization: 'Green University Computer Club (GUCC)',
+      period: '10 March 2025 to 26 April, 2026',
+      description: 'Directing daily club operations, structuring tech seminars, workshops, and competitive programming bootcamps for 500+ active members. Serving as the primary coordinator between student leads and university officials.',
+      icon: '/assets/leadership_positions/jgs.jpg'
     },
     {
-      title: 'Major Event Milestones',
-      organization: 'GUB Events',
-      description: 'Successfully led major GUCC V2C event [Takes Coders Battles] and organized 200+ students',
-      icon: '/assets/achievements/star.png'
+      title: 'Lead Organizer',
+      organization: 'HackTheAI – The Inter-University Hackathon',
+      period: '25 Sep, 2025',
+      description: 'HackTheAI – The Inter-University Hackathon powered by SmythOS is coming to Green University of Bangladesh (GUB), proudly organized by the Department of CSE, Green University of Bangladesh and the Green University Computer Club (GUCC). 🎉 This is your chance to showcase your coding and problem-solving skills, compete with the brightest talents, and win big!',
+      icon: null
     },
     {
-      title: 'LEO Club Green',
-      organization: 'GUB LEO Club',
-      description: 'Contributing to community service initiatives and social responsibility programs...',
-      icon: '/assets/achievements/heart.png'
+      title: 'Advisor to President',
+      organization: 'LEO Club of Green University',
+      period: '03 March 2025 to November 2025',
+      description: 'Assisting the LEO Club presidency with strategic planning, program delegation, and leadership training. Advising on community charity initiatives, blood donation drives, and youth engagement campaigns.',
+      icon: '/assets/leadership_positions/FB_IMG_1764545465407.jpg'
     },
     {
-      title: 'App Developer & Publisher',
-      organization: 'Google Play Store',
-      description: 'Published 3+ cross-platform mobile apps built with Flutter, gaining over 1,000+ active users collectively.',
-      icon: '/assets/achievements/rocket.png'
+      title: 'Joint Treasurer',
+      organization: 'LEO Club of Green University',
+      period: '02 July 2024 to 03 March 2025',
+      description: 'Managing organizational budgets, auditing membership collections, and tracking funding allocations for multiple social service projects and community relief campaigns.',
+      icon: '/assets/leadership_positions/FB_IMG_1764545521185.jpg'
     },
     {
-      title: 'Coding Hackathon Winner',
-      organization: 'National Programming Contests',
-      description: 'Secured top positions in regional university programming contests and tech hackathons, showcasing strong Dart and Flutter prototyping skills.',
-      icon: '/assets/achievements/medal.png'
+      title: 'Technical Support & Event Manager Internship',
+      organization: 'Center of Excellence for Teaching and Learning (CETL)',
+      period: 'June 2024 to December 2025',
+      description: 'Managing digital seminar infrastructure, assisting faculty training sessions, maintaining technical hardware systems, and streamlining campus-wide pedagogical workshop execution.',
+      icon: '/assets/leadership_positions/FB_IMG_1764545573033.jpg'
+    },
+    {
+      title: 'Event Coordinator',
+      organization: 'Green University Computer Club (GUCC)',
+      period: '21 May 2024 to 10 March 2025',
+      description: 'Planning, mapping out, and executing major events, programming battles, and networking seminars. Coordinated logistic support, volunteer assignments, and developer sessions.',
+      icon: '/assets/leadership_positions/ec.jpg'
+    },
+    {
+      title: 'Lead Member',
+      organization: 'GUB CSE Carnival 2024',
+      period: '2–4 October 2024',
+      description: "Led volunteer sub-teams during GUB's largest technical carnival, coordinating competitive programming venues, coding bootcamps, and project showcasing logistics.",
+      icon: null
+    },
+    {
+      title: 'Executive Member',
+      organization: 'Green University Computer Club (GUCC)',
+      period: '01 August 2023 to 21 May 2024',
+      description: 'Organizing competitive coding mock contests, designing marketing campaigns for workshops, and supporting logistic operations during programming events.',
+      icon: '/assets/leadership_positions/em.jpg'
+    },
+    {
+      title: 'Volunteer',
+      organization: '2022 ICPC ASIA DHAKA REGIONAL CONTEST',
+      period: '9–10 March 2023',
+      description: 'Supported venue preparations, team registrations, code submission system updates, and overall logistics during the prestigious regional collegiate programming contest.',
+      icon: null
     }
   ]
 };

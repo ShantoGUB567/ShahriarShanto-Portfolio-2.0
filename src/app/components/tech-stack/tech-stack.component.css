@@ -1,44 +1,238 @@
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.stack-card {
-  background: var(--bg-card);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.stack-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-color);
-}
-
-.stack-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.stack-card h3 {
-  margin-bottom: 1.5rem;
-  color: var(--primary-color);
-}
-
-.technologies {
+/* Filter tabs layout */
+.filter-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 3.5rem;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  padding: 0.65rem 1.4rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  letter-spacing: 0.02em;
+}
+
+.filter-btn:hover {
+  cursor: pointer;
+  border-color: rgba(61, 217, 179, 0.4);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: rgba(61, 217, 179, 0.12);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 16px rgba(61, 217, 179, 0.2);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Individual Skill Card */
+.skill-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.8rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border-color: var(--brand-color);
+}
+
+/* Skill Icon */
+.skill-icon-container {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-card:hover .skill-icon-container {
+  transform: scale(1.15);
+}
+
+.svg-icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* Skill Name */
+.skill-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  z-index: 2;
+  margin: 0;
+}
+
+.skill-card:hover .skill-name {
+  color: var(--text-primary);
+}
+
+/* Skill radial glow effect */
+.skill-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 65px at 50% 50%,
+    var(--glow-color),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skill-card:hover .skill-glow {
+  opacity: 1;
+}
+
+/* Specific Skill Brand Colors & Glows */
+.c {
+  --brand-color: #a8b9cc;
+  --glow-color: rgba(168, 185, 204, 0.15);
+}
+.cpp {
+  --brand-color: #00599c;
+  --glow-color: rgba(0, 89, 156, 0.15);
+}
+.java {
+  --brand-color: #ea2d42;
+  --glow-color: rgba(234, 45, 66, 0.15);
+}
+.python {
+  --brand-color: #3776ab;
+  --glow-color: rgba(55, 118, 171, 0.15);
+}
+.dart {
+  --brand-color: #00b4ab;
+  --glow-color: rgba(0, 180, 171, 0.15);
+}
+.flutter {
+  --brand-color: #02569b;
+  --glow-color: rgba(2, 86, 155, 0.15);
+}
+.angular {
+  --brand-color: #dd0031;
+  --glow-color: rgba(221, 0, 49, 0.15);
+}
+.html {
+  --brand-color: #e34f26;
+  --glow-color: rgba(227, 79, 38, 0.15);
+}
+.css {
+  --brand-color: #1572b6;
+  --glow-color: rgba(21, 114, 182, 0.15);
+}
+.javascript {
+  --brand-color: #f7df1e;
+  --glow-color: rgba(247, 223, 30, 0.12);
+}
+.git {
+  --brand-color: #f05032;
+  --glow-color: rgba(240, 80, 50, 0.15);
+}
+.github {
+  --brand-color: #ffffff;
+  --glow-color: rgba(255, 255, 255, 0.08);
+}
+.gitlab {
+  --brand-color: #fc6d26;
+  --glow-color: rgba(252, 109, 38, 0.15);
+}
+.firebase {
+  --brand-color: #ffca28;
+  --glow-color: rgba(255, 202, 40, 0.15);
+}
+.supabase {
+  --brand-color: #3ecf8e;
+  --glow-color: rgba(62, 207, 142, 0.15);
+}
+.mysql {
+  --brand-color: #00758f;
+  --glow-color: rgba(0, 117, 143, 0.15);
+}
+.sqlite {
+  --brand-color: #003b57;
+  --glow-color: rgba(0, 59, 87, 0.15);
+}
+.bash {
+  --brand-color: #4eaa25;
+  --glow-color: rgba(78, 170, 37, 0.15);
+}
+.go {
+  --brand-color: #00a2c9;
+  --glow-color: rgba(0, 162, 201, 0.15);
+}
+.appstore {
+  --brand-color: #007aff;
+  --glow-color: rgba(0, 122, 255, 0.15);
+}
+.googleplay {
+  --brand-color: #3ff374;
+  --glow-color: rgba(63, 243, 116, 0.15);
+}
+.postman {
+  --brand-color: #ff6c37;
+  --glow-color: rgba(255, 108, 55, 0.15);
+}
+.vscode {
+  --brand-color: #007acc;
+  --glow-color: rgba(0, 122, 204, 0.15);
+}
+.androidstudio {
+  --brand-color: #3ddc84;
+  --glow-color: rgba(61, 220, 132, 0.15);
+}
+.xcode {
+  --brand-color: #147efb;
+  --glow-color: rgba(20, 126, 251, 0.15);
+}
+
+.custom-svg-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.tech-badge {
-  background: var(--bg-secondary);
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+.devicon-logo {
+  font-size: 2.6rem;
+  line-height: 1;
 }
