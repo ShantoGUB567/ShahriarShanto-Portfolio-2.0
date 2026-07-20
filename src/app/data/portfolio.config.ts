@@ -45,8 +45,9 @@ export interface Project {
 export interface Achievement {
   title: string;
   organization: string;
-  description: string;
-  icon: string;
+  period: string;
+  description?: string;
+  icon?: string | null;
 }
 
 export interface Skill {
@@ -237,34 +238,67 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   achievements: [
     {
-      title: 'GUCC 2025 General Secretary',
-      organization: 'Green University Computer Club',
-      description: 'Leading a dynamic team of coding enthusiasts by organizing tech events, workshops and programming competitions.',
-      icon: '/assets/achievements/trophy.png'
+      title: 'Joint General Secretary',
+      organization: 'Green University Computer Club (GUCC)',
+      period: '10 March 2025 to 26 April, 2026',
+      description: 'Directing daily club operations, structuring tech seminars, workshops, and competitive programming bootcamps for 500+ active members. Serving as the primary coordinator between student leads and university officials.',
+      icon: '/assets/leadership_positions/jgs.jpg'
     },
     {
-      title: 'Major Event Milestones',
-      organization: 'GUB Events',
-      description: 'Successfully led major GUCC V2C event [Takes Coders Battles] and organized 200+ students',
-      icon: '/assets/achievements/star.png'
+      title: 'Lead Organizer',
+      organization: 'HackTheAI – The Inter-University Hackathon',
+      period: '25 Sep, 2025',
+      description: 'HackTheAI – The Inter-University Hackathon powered by SmythOS is coming to Green University of Bangladesh (GUB), proudly organized by the Department of CSE, Green University of Bangladesh and the Green University Computer Club (GUCC). 🎉 This is your chance to showcase your coding and problem-solving skills, compete with the brightest talents, and win big!',
+      icon: null
     },
     {
-      title: 'LEO Club Green',
-      organization: 'GUB LEO Club',
-      description: 'Contributing to community service initiatives and social responsibility programs...',
-      icon: '/assets/achievements/heart.png'
+      title: 'Advisor to President',
+      organization: 'LEO Club of Green University',
+      period: '03 March 2025 to November 2025',
+      description: 'Assisting the LEO Club presidency with strategic planning, program delegation, and leadership training. Advising on community charity initiatives, blood donation drives, and youth engagement campaigns.',
+      icon: '/assets/leadership_positions/FB_IMG_1764545465407.jpg'
     },
     {
-      title: 'App Developer & Publisher',
-      organization: 'Google Play Store',
-      description: 'Published 3+ cross-platform mobile apps built with Flutter, gaining over 1,000+ active users collectively.',
-      icon: '/assets/achievements/rocket.png'
+      title: 'Joint Treasurer',
+      organization: 'LEO Club of Green University',
+      period: '02 July 2024 to 03 March 2025',
+      description: 'Managing organizational budgets, auditing membership collections, and tracking funding allocations for multiple social service projects and community relief campaigns.',
+      icon: '/assets/leadership_positions/FB_IMG_1764545521185.jpg'
     },
     {
-      title: 'Coding Hackathon Winner',
-      organization: 'National Programming Contests',
-      description: 'Secured top positions in regional university programming contests and tech hackathons, showcasing strong Dart and Flutter prototyping skills.',
-      icon: '/assets/achievements/medal.png'
+      title: 'Technical Support & Event Manager Internship',
+      organization: 'Center of Excellence for Teaching and Learning (CETL)',
+      period: 'June 2024 to December 2025',
+      description: 'Managing digital seminar infrastructure, assisting faculty training sessions, maintaining technical hardware systems, and streamlining campus-wide pedagogical workshop execution.',
+      icon: '/assets/leadership_positions/FB_IMG_1764545573033.jpg'
+    },
+    {
+      title: 'Event Coordinator',
+      organization: 'Green University Computer Club (GUCC)',
+      period: '21 May 2024 to 10 March 2025',
+      description: 'Planning, mapping out, and executing major events, programming battles, and networking seminars. Coordinated logistic support, volunteer assignments, and developer sessions.',
+      icon: '/assets/leadership_positions/ec.jpg'
+    },
+    {
+      title: 'Lead Member',
+      organization: 'GUB CSE Carnival 2024',
+      period: '2–4 October 2024',
+      description: "Led volunteer sub-teams during GUB's largest technical carnival, coordinating competitive programming venues, coding bootcamps, and project showcasing logistics.",
+      icon: null
+    },
+    {
+      title: 'Executive Member',
+      organization: 'Green University Computer Club (GUCC)',
+      period: '01 August 2023 to 21 May 2024',
+      description: 'Organizing competitive coding mock contests, designing marketing campaigns for workshops, and supporting logistic operations during programming events.',
+      icon: '/assets/leadership_positions/em.jpg'
+    },
+    {
+      title: 'Volunteer',
+      organization: '2022 ICPC ASIA DHAKA REGIONAL CONTEST',
+      period: '9–10 March 2023',
+      description: 'Supported venue preparations, team registrations, code submission system updates, and overall logistics during the prestigious regional collegiate programming contest.',
+      icon: null
     }
   ]
 };

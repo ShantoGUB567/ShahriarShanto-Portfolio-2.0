@@ -1,13 +1,34 @@
 <section id="leadership" class="section achievements">
   <div class="container">
     <h2 class="section-title">Beyond the Code</h2>
-    <div class="achievements-grid">
-      <div *ngFor="let achievement of achievements" class="achievement-card">
-        <img [src]="achievement.icon" [alt]="achievement.title" class="achievement-img">
+    <p class="section-subtitle">Leadership roles, club involvements, and event coordination</p>
+    
+    <div class="slider-hint">
+      <span>← Drag to scroll positions →</span>
+    </div>
+
+    <!-- Achievements horizontal slider -->
+    <div 
+      #scrollContainer
+      class="achievements-slider"
+      (mousedown)="onDragStart($event)"
+      (mousemove)="onDragMove($event)"
+      (mouseup)="onDragEnd($event)"
+      (mouseleave)="onDragEnd($event)"
+    >
+      <div 
+        *ngFor="let achievement of achievements" 
+        class="achievement-card"
+        [class.no-image]="!achievement.icon"
+      >
+        <div *ngIf="achievement.icon" class="achievement-img-wrapper">
+          <img [src]="achievement.icon" [alt]="achievement.title" class="achievement-img" draggable="false">
+        </div>
         <div class="achievement-content">
+          <span class="achievement-period">{{ achievement.period }}</span>
           <h3>{{ achievement.title }}</h3>
           <p class="organization">{{ achievement.organization }}</p>
-          <p class="description">{{ achievement.description }}</p>
+          <p *ngIf="achievement.description" class="description">{{ achievement.description }}</p>
         </div>
       </div>
     </div>
