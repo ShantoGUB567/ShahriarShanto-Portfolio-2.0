@@ -164,6 +164,28 @@ export const PORTFOLIO_DATA: PortfolioData = {
   // Personal Project
   projects: [
     {
+      title: 'Sippd.Coffee',
+      description: 'A location-based coffee discovery and review platform with Firebase authentication, REST API integration, and AI-driven insights.',
+      longDescription: 'Sippd.Coffee is a location-based coffee discovery and review platform with Firebase authentication, REST API integration, and AI-driven insights, enabling users to explore nearby cafés, submit ratings, and share real-time feedback.',
+      image: '/assets/projects/sippd-coffee.png',
+      technologies: ['Flutter', 'REST API', 'AI/ML', 'Firebase'],
+      links: {
+        appStore: 'https://apps.apple.com/sg/app/sippd-coffee/id6752921147',
+        playStore: 'https://play.google.com/store/apps/details?id=com.sipped.app&hl=en'
+      }
+    },
+    {
+      title: 'Real Convert',
+      description: 'A currency converter supporting 160+ currencies with live exchange rates, historical charts, home screen widgets, and offline mode.',
+      longDescription: 'Real Convert is a currency converter supporting 160+ currencies with live exchange rates, historical charts, home screen widgets, and offline mode.',
+      image: '/assets/projects/real-convert.png',
+      technologies: ['Flutter', 'REST API', 'Widgets'],
+      links: {
+        appStore: 'https://apps.apple.com/in/app/real-convert/id6748574890',
+        playStore: 'https://play.google.com/store/apps/details?id=com.solank.currencyconverter'
+      }
+    },
+    {
       title: 'NW RMG Website',
       description: 'A professional business website for NW RMG, showcasing apparel products, sustainable manufacturing processes...',
       longDescription: 'NW RMG Website is a highly responsive web application designed for a premium Ready-Made Garments (RMG) manufacturer. It allows international buyers to explore clothing categories, inspect production certifications, view facilities, and submit detailed order inquiries. Built to load fast and rank well on search engines.',
@@ -171,7 +193,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       technologies: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'MongoDB'],
       links: {
         live: 'https://www.nw-rmg.com/',
-        github: 'https://github.com/ShantoGUB567/nw-rmg'
+        // github: 'https://github.com/ShantoGUB567/nw-rmg'
       }
     },
     {
@@ -181,9 +203,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
       image: '/assets/projects/green-campus.jpg',
       technologies: ['Flutter', 'Dart', 'Firebase', 'REST API', 'GetX'],
       links: {
-        github: 'https://github.com/ShantoGUB567/green-campus',
-        playStore: 'https://play.google.com/store/apps/details?id=com.gub.greencampus',
-        openTesting: 'https://play.google.com/apps/testing/com.gub.greencampus'
+        github: 'https://github.com/ShantoGUB567/Green-Campus.git',
+        // playStore: 'https://play.google.com/store/apps/details?id=com.gub.greencampus',
+        // openTesting: 'https://play.google.com/apps/testing/com.gub.greencampus'
       }
     },
     {

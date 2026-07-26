@@ -39,30 +39,87 @@
       <!-- Right Column: Inquiry message form -->
       <div class="contact-form-container">
         <h3 class="column-title">Send a Message</h3>
-        <form class="contact-form">
+
+        <!-- Success State -->
+        <div class="form-feedback success-card" *ngIf="isSuccess">
+          <div class="feedback-icon">✅</div>
+          <h4>Message Sent!</h4>
+          <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="form-feedback error-card" *ngIf="isError">
+          <div class="feedback-icon">❌</div>
+          <h4>Failed to Send</h4>
+          <p>{{ errorMessage }}</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" *ngIf="!isSuccess">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="MD Udoy Mondol" required>
+              <label for="from_name">Name</label>
+              <input
+                type="text"
+                id="from_name"
+                name="from_name"
+                placeholder="MD Udoy Mondol"
+                required
+                [(ngModel)]="formData.from_name"
+                [disabled]="isSending"
+              >
             </div>
             
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="udoy@gmail.com" required>
+              <label for="from_email">Email</label>
+              <input
+                type="email"
+                id="from_email"
+                name="from_email"
+                placeholder="udoy@gmail.com"
+                required
+                [(ngModel)]="formData.from_email"
+                [disabled]="isSending"
+              >
             </div>
           </div>
           
           <div class="form-group">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Project Inquiry"
+              required
+              [(ngModel)]="formData.subject"
+              [disabled]="isSending"
+            >
           </div>
           
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Type your message here..."
+              required
+              [(ngModel)]="formData.message"
+              [disabled]="isSending"
+            ></textarea>
           </div>
           
-          <button type="submit" class="submit-btn">Send Message</button>
+          <button type="submit" class="submit-btn" [disabled]="isSending || contactForm.invalid">
+            <span *ngIf="!isSending" class="btn-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              Send Message
+            </span>
+            <span *ngIf="isSending" class="btn-content">
+              <span class="spinner"></span>
+              Sending...
+            </span>
+          </button>
         </form>
       </div>
     </div>

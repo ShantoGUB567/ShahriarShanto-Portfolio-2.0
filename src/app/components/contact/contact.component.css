@@ -155,14 +155,87 @@
   box-shadow: 0 4px 15px rgba(61, 217, 179, 0.2);
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background: #2bc59d;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(61, 217, 179, 0.35);
 }
 
-.submit-btn:active {
+.submit-btn:active:not(:disabled) {
   transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-top-color: var(--bg-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Feedback Cards */
+.form-feedback {
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-icon {
+  font-size: 2.5rem;
+}
+
+.form-feedback h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.form-feedback p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.success-card {
+  background: rgba(61, 217, 179, 0.08);
+  border: 1px solid rgba(61, 217, 179, 0.35);
+  color: #3dd9b3;
+}
+
+.error-card {
+  background: rgba(255, 80, 80, 0.08);
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  color: #ff6b6b;
 }
 
 /* Responsiveness */
