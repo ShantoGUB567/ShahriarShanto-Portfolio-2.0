@@ -1,0 +1,77 @@
+<div class="road" aria-hidden="true"></div>
+<div #bicycle class="bicycle" aria-hidden="true">
+  <svg viewBox="0 0 180 104" role="presentation">
+    <defs>
+      <radialGradient id="tyreShade">
+        <stop offset="72%" stop-color="#faf9f5"/>
+        <stop offset="76%" stop-color="#55515e"/>
+        <stop offset="88%" stop-color="#17151f"/>
+        <stop offset="100%" stop-color="#050506"/>
+      </radialGradient>
+      <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#c9c7ce"/><stop offset=".5" stop-color="#686570"/><stop offset="1" stop-color="#e4e2e6"/>
+      </linearGradient>
+    </defs>
+
+    <g #rearWheel class="wheel rear-wheel">
+      <circle class="tyre" cx="44" cy="66" r="32"/>
+      <circle class="rim" cx="44" cy="66" r="26.5"/>
+      <g class="spokes"><path d="M44 39.5v53M17.5 66h53M25.3 47.3l37.4 37.4M62.7 47.3L25.3 84.7M30.8 42.9l26.4 46.2M20.9 52.8l46.2 26.4M57.2 42.9L30.8 89.1M67.1 52.8L20.9 79.2"/></g>
+      <circle class="hub" cx="44" cy="66" r="3.2"/>
+    </g>
+    <g #frontWheel class="wheel front-wheel">
+      <circle class="tyre" cx="136" cy="66" r="32"/>
+      <circle class="rim" cx="136" cy="66" r="26.5"/>
+      <g class="spokes"><path d="M136 39.5v53M109.5 66h53M117.3 47.3l37.4 37.4M154.7 47.3l-37.4 37.4M122.8 42.9l26.4 46.2M112.9 52.8l46.2 26.4M149.2 42.9l-26.4 46.2M159.1 52.8l-46.2 26.4"/></g>
+      <circle class="hub" cx="136" cy="66" r="3.2"/>
+    </g>
+
+    <g class="rider">
+      <g class="rider-body-bob">
+        <path class="rider-back-arm" d="M91 0Q103 5 109 15T124 27"/>
+        <path class="rider-back-leg" d="M76 18Q83 34 93 43T99 66"/>
+        <path class="rider-shoe" d="M92 65q8-4 15 1l-1 4H94Z"/>
+
+        <path class="rider-jersey" d="M87-5q9 1 14 9l-8 21-20-6 4-15q2-7 10-9Z"/>
+        <path class="jersey-panel" d="M88-4q5 2 8 7l-7 19-8-2Z"/>
+        <path class="rider-shorts" d="M73 18l20 5-4 11-13-3-7-6Z"/>
+
+        <g class="rider-front-leg">
+          <path class="rider-skin-stroke" d="M82 28Q74 40 82 49L98 64"/>
+          <path class="rider-shoe" d="M94 62q9-1 14 5l-3 4-11-3Z"/>
+        </g>
+
+        <path class="rider-front-arm" d="M96 1Q108 8 111 17l13 10"/>
+        <circle class="rider-hand" cx="124" cy="27" r="3.3"/>
+
+        <path class="rider-neck" d="M87-8v7h8v-8"/>
+        <path class="rider-face" d="M83-23q1-9 10-9 10 0 11 10l-2 10q-3 8-11 7-8-2-8-10Z"/>
+        <path class="rider-ear" d="M102-20q5-1 4 4-1 4-5 3"/>
+        <path class="rider-hair" d="M84-24q2-10 12-8 7 1 8 8-7-2-11-7-3 6-9 7Z"/>
+        <circle class="rider-eye" cx="99" cy="-21" r="1.2"/>
+        <path class="rider-smile" d="M98-13q3 2 5-1"/>
+        <path class="rider-helmet" d="M82-25q0-13 12-14 12 1 14 11l-5 2q-8-5-21 1Z"/>
+        <path class="helmet-stripe" d="M91-37q7 3 9 10"/>
+      </g>
+    </g>
+
+    <g class="frame">
+      <path class="frame-main" d="M44 66L72 25l27 41H44l41-30 39-1 12 31M72 25l13 11"/>
+      <path class="fork" d="M124 35l12 31M120 28l5 9"/>
+      <path class="handlebar" d="M118 28h15m-3 0c4 0 5-5 1-7"/>
+      <path class="seat-post" d="M72 25l-5-10"/>
+      <path class="seat" d="M59 14c7-2 15-1 20 2"/>
+      <path class="chain" d="M44 69h55"/>
+      <circle class="gear" cx="99" cy="66" r="9"/>
+    </g>
+    <g #crank class="crank">
+      <path d="M99 57v18M94 57h10M94 75h10"/>
+      <circle cx="99" cy="66" r="3"/>
+    </g>
+    <g class="details">
+      <path class="brake-cable" d="M128 23c-13-3-17 7-12 17"/>
+      <path class="fender" d="M111 45c12-14 37-12 48 4"/>
+      <circle class="reflector" cx="151" cy="45" r="2.5"/>
+    </g>
+  </svg>
+</div>

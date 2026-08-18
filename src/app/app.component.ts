@@ -9,6 +9,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { TechStackComponent } from './components/tech-stack/tech-stack.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ScrollCyclistComponent } from './components/scroll-cyclist/scroll-cyclist.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ProjectsComponent,
     TechStackComponent,
     AchievementsComponent,
-    ContactComponent
+    ContactComponent,
+    ScrollCyclistComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

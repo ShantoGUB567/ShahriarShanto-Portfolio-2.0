@@ -1,8 +1,47 @@
 .about-content {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 980px;
+  margin: 2rem auto 0;
+  padding: clamp(2rem, 5vw, 4rem);
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .78);
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  white-space: pre-line;
+  border: 1px solid var(--border-color);
+  border-radius: 32px;
+  box-shadow: 0 18px 55px rgba(37, 28, 70, .09);
+  backdrop-filter: blur(14px);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.9;
+}
+
+.about-content::before {
+  content: '“';
+  position: absolute;
+  right: 2rem;
+  top: -2.5rem;
+  color: var(--primary-color);
+  font-family: Georgia, serif;
+  font-size: 12rem;
+  opacity: .08;
+}
+
+.about-paragraph {
+  position: relative;
+  margin: 0;
+}
+
+.about-paragraph + .about-paragraph {
+  margin-top: 1.35rem;
+}
+
+.about-paragraph:first-child {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .about-content {
+    padding: 1.5rem;
+    border-radius: 22px;
+  }
 }

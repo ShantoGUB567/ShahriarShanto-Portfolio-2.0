@@ -1,13 +1,14 @@
 import { Component, Input, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PORTFOLIO_DATA, Project } from '../../data/portfolio.config';
+import { FloatInDirective } from '../../directives/float-in.directive';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FloatInDirective],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+  styleUrls: ['./projects.component.css', './projects.redesign.css']
 })
 export class ProjectsComponent {
   @Input() projects = PORTFOLIO_DATA.projects;
@@ -15,6 +16,8 @@ export class ProjectsComponent {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   
   selectedProject: Project | null = null;
+  currentProjectIndex = 0;
+  private scrollFrame?: number;
   
   // Drag to scroll properties
   isDraggingActive = false;
@@ -78,5 +81,56 @@ export class ProjectsComponent {
   closeProject() {
     this.selectedProject = null;
     document.body.style.overflow = '';
+  }
+
+  scrollProjects(direction: -1 | 1) {
+    const container = this.scrollContainer.nativeElement as HTMLElement;
+    this.currentProjectIndex = (this.currentProjectIndex + direction + this.projects.length) % this.projects.length;
+    const cards = Array.from(container.querySelectorAll<HTMLElement>('.project-card'));
+    const target = cards[this.currentProjectIndex];
+    if (target) container.scrollTo({ left: target.offsetLeft - container.offsetLeft, behavior: 'smooth' });
+  }
+
+  onProjectScroll() {
+    if (this.scrollFrame !== undefined) return;
+
+    this.scrollFrame = requestAnimationFrame(() => {
+      this.scrollFrame = undefined;
+      const container = this.scrollContainer.nativeElement as HTMLElement;
+      const cards = Array.from(container.querySelectorAll<HTMLElement>('.project-card'));
+      const containerLeft = container.getBoundingClientRect().left;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card, index) => {
+        const distance = Math.abs(card.getBoundingClientRect().left - containerLeft);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          this.currentProjectIndex = index;
+        }
+      });
+    });
+  }
+
+  getProjectPlatforms(project: Project): string[] {
+    if (!project.links) return ['Case study'];
+
+    const platforms: string[] = [];
+    if (project.links.playStore || project.links.openTesting) platforms.push('Android');
+    if (project.links.appStore || project.links.testFlight || project.links.testFlightCustomer || project.links.testFlightDriver || project.links.testFlightClient || project.links.testFlightConductor) platforms.push('iOS');
+    if (project.links.live) platforms.push('Web');
+    if (project.links.github) platforms.push('Source');
+    return platforms.slice(0, 3);
+  }
+
+  getProjectType(project: Project): string {
+    const technologies = project.technologies ?? [];
+    if (technologies.some(tech => /AI|Gemini|ML/i.test(tech))) return 'AI-powered product';
+    if (technologies.some(tech => /Angular|HTML|CSS|JavaScript/i.test(tech))) return 'Web platform';
+    if (technologies.some(tech => /Flutter|Dart/i.test(tech))) return 'Mobile application';
+    return 'Digital product';
+  }
+
+  getProjectLinkCount(project: Project): number {
+    return project.links ? Object.values(project.links).filter(Boolean).length : 0;
   }
 }
