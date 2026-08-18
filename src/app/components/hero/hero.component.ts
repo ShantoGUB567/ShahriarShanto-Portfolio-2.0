@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PORTFOLIO_DATA } from '../../data/portfolio.config';
+import { FloatInDirective } from '../../directives/float-in.directive';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FloatInDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
