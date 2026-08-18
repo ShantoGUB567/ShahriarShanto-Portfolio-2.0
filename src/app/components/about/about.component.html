@@ -1,8 +1,11 @@
 <section id="about" class="section about">
   <div class="container">
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title" appFloatIn>About Me</h2>
     <div class="about-content">
-      <p>{{ data.bio }}</p>
+      <p *ngFor="let paragraph of bioParagraphs; let index = index"
+         class="about-paragraph"
+         appFloatIn
+         [floatInDelay]="index * 90">{{ paragraph }}</p>
     </div>
   </div>
 </section>
