@@ -1,16 +1,44 @@
 <section id="experience" class="section experience">
   <div class="container">
-    <h2 class="section-title">Professional Journey</h2>
-    <div class="timeline">
-      <div *ngFor="let exp of experiences" class="timeline-item">
-        <div class="timeline-dot" [class.current]="exp.current"></div>
-        <div class="timeline-content">
-          <div class="period">{{ exp.period }}</div>
-          <h3 class="title">{{ exp.title }}</h3>
-          <div class="company">{{ exp.company }}</div>
-          <p class="description">{{ exp.description }}</p>
-        </div>
-      </div>
+    <header class="experience-heading" appFloatIn>
+      <span class="section-kicker">Career timeline</span>
+      <h2 class="section-title">Professional Journey</h2>
+      <p class="section-subtitle">Scroll through the roles that shaped how I build, collaborate, and solve real-world problems.</p>
+    </header>
+
+    <div class="experience-stack">
+      <ng-container *ngFor="let exp of experiences; let index = index">
+        <span #stackTrigger class="stack-trigger" aria-hidden="true"></span>
+        <article class="experience-card"
+                 [class.is-active]="activeIndex === index"
+                 [class.is-past]="activeIndex > index"
+                 [style.--card-index]="index">
+          <div class="card-accent" aria-hidden="true"></div>
+          <div class="card-topline">
+            <span class="card-number">{{ (index + 1).toString().padStart(2, '0') }}</span>
+            <span class="period">{{ exp.period }}</span>
+            <span *ngIf="exp.current" class="current-badge"><span class="pulse-dot"></span> Current role</span>
+          </div>
+
+          <div class="card-layout">
+            <div class="role-block">
+              <span class="role-label">Role</span>
+              <h3 class="title">{{ exp.title }}</h3>
+              <div class="company">{{ exp.company }}</div>
+            </div>
+            <div class="description-block">
+              <span class="role-label">What I did</span>
+              <p class="description">{{ exp.description }}</p>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span>{{ index + 1 }} / {{ experiences.length }}</span>
+            <span class="scroll-cue">Scroll to explore <span>↓</span></span>
+          </div>
+        </article>
+        <div class="stack-space" aria-hidden="true"></div>
+      </ng-container>
     </div>
   </div>
 </section>

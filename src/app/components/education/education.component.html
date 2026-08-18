@@ -1,16 +1,41 @@
 <section id="education" class="section education">
   <div class="container">
-    <h2 class="section-title">Academic Foundation</h2>
-    <div class="education-grid">
-      <div *ngFor="let edu of education" class="edu-card">
-        <div class="edu-header">
-          <h3>{{ edu.degree }}</h3>
+    <header class="academic-heading" appFloatIn>
+      <div>
+        <span class="academic-kicker">Learning journey</span>
+        <h2 class="section-title">Academic Foundation</h2>
+      </div>
+      <p>Built through curiosity, disciplined learning, and a strong foundation in computer science and problem-solving.</p>
+    </header>
+
+    <div class="academic-grid">
+      <article *ngFor="let edu of education; let index = index"
+               class="academic-card"
+               [class.featured]="index === 0"
+               appFloatIn
+               [floatInDelay]="index * 100">
+        <div class="academic-card-top">
+          <span class="academic-number">{{ (index + 1).toString().padStart(2, '0') }}</span>
           <span class="period">{{ edu.period }}</span>
         </div>
-        <p class="institution">{{ edu.institution }}</p>
-        <p class="institution">{{ edu.address }}</p>
-        <p *ngIf="edu.gpa" class="gpa">{{ edu.gpa }}</p>
-      </div>
+
+        <div class="academic-card-body">
+          <div class="degree-wrap">
+            <span class="degree-label">Qualification</span>
+            <h3>{{ edu.degree }}</h3>
+          </div>
+
+          <div class="academic-details">
+            <p class="institution"><span class="detail-icon">◆</span>{{ edu.institution }}</p>
+            <p class="address"><span class="detail-icon">⌖</span>{{ edu.address }}</p>
+          </div>
+        </div>
+
+        <div class="academic-card-bottom">
+          <span *ngIf="edu.gpa" class="gpa">{{ edu.gpa }}</span>
+          <span class="record-label">Academic record <span>↗</span></span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
