@@ -89,7 +89,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
 
     Beyond technical development, I value problem-solving, teamwork, and adaptability. I enjoy collaborating on innovative projects, learning from new challenges, and transforming ideas into impactful digital products. My goal is to grow as a versatile full stack developer while building modern applications that deliver meaningful experiences and long-term value to users and businesses.`,
     profileImage: '/assets/profile/profile.jpg',
-    resumeUrl: '/assets/profile/resume.pdf'
+    resumeUrl: 'https://drive.google.com/drive/folders/1aqqNLEHV-0Ub09quzD4Qz0LtG9DEATfY'
   },
 
   // Personal ContactInfo
