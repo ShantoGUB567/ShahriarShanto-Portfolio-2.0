@@ -1,12 +1,19 @@
 <section id="projects" class="section projects">
   <div class="container">
-    <h2 class="section-title">Featured Projects</h2>
-    <p class="section-subtitle">Turning complex ideas into functional realities</p>
-    
-    <!-- Drag instruction/hint -->
-    <div class="slider-hint">
-      <span>← Drag to scroll projects →</span>
-    </div>
+    <header class="projects-heading" appFloatIn>
+      <div>
+        <span class="projects-kicker">Selected work</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      <div class="projects-intro">
+        <p>Mobile and web products shaped from complex ideas into useful, production-ready experiences.</p>
+        <div class="project-controls">
+          <span>{{ projects.length }} case studies</span>
+          <button type="button" (click)="scrollProjects(-1)" aria-label="Previous projects">←</button>
+          <button type="button" (click)="scrollProjects(1)" aria-label="Next projects">→</button>
+        </div>
+      </div>
+    </header>
 
     <!-- Scrollable container -->
     <div 
@@ -16,10 +23,19 @@
       (mousemove)="onDragMove($event)"
       (mouseup)="onDragEnd($event)"
       (mouseleave)="onDragEnd($event)"
+      (scroll)="onProjectScroll()"
     >
-      <div *ngFor="let project of projects" class="project-card">
+      <article *ngFor="let project of projects; let index = index"
+               #projectCard
+               class="project-card"
+               appFloatIn
+               [floatInDelay]="index * 70">
         <div class="project-image">
           <img [src]="project.image" [alt]="project.title" draggable="false">
+          <span class="project-index">{{ (index + 1).toString().padStart(2, '0') }}</span>
+          <div class="platform-pills">
+            <span *ngFor="let platform of getProjectPlatforms(project)">{{ platform }}</span>
+          </div>
           <div class="project-overlay">
             <button class="project-link" (click)="openProject(project, $event)">
               View Details →
@@ -27,20 +43,32 @@
           </div>
         </div>
         <div class="project-content">
+          <div class="project-eyebrow">
+            <span class="project-type">{{ getProjectType(project) }}</span>
+            <span>{{ project.technologies?.length || 0 }} technologies</span>
+          </div>
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <div *ngIf="project.technologies" class="tech-tags">
-            <span *ngFor="let tech of project.technologies" class="tag">{{ tech }}</span>
+            <span *ngFor="let tech of project.technologies.slice(0, 4)" class="tag">{{ tech }}</span>
+            <span *ngIf="project.technologies.length > 4" class="tag more-tag">+{{ project.technologies.length - 4 }}</span>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-stat">
+              <strong>{{ getProjectLinkCount(project) }}</strong>
+              <span>available links</span>
+            </div>
+            <button type="button" (click)="openProject(project, $event)">Explore case study <span>↗</span></button>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- Project Details Glassmorphic Modal -->
 <div *ngIf="selectedProject" class="modal-backdrop" (click)="closeProject()">
-  <div class="modal-card" (click)="$event.stopPropagation()">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Project details" (click)="$event.stopPropagation()">
     <!-- Floating Close Button -->
     <button class="modal-close" (click)="closeProject()" aria-label="Close modal">
       <svg viewBox="0 0 24 24" width="20" height="20">
@@ -52,10 +80,17 @@
       <!-- Left Column (Square Poster) -->
       <div class="modal-image-container">
         <img [src]="selectedProject.image" [alt]="selectedProject.title" class="modal-image">
+        <div class="modal-image-shade"></div>
+        <span class="modal-case-label">Selected case study</span>
       </div>
 
       <!-- Right Column (Details) -->
       <div class="modal-info">
+        <div class="modal-project-meta">
+          <span>{{ getProjectType(selectedProject) }}</span>
+          <span>{{ selectedProject.technologies?.length || 0 }} tools</span>
+          <span>{{ getProjectLinkCount(selectedProject) }} links</span>
+        </div>
         <h3 class="modal-title">{{ selectedProject.title }}</h3>
         
         <div class="modal-description-box">

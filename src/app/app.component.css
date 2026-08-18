@@ -1,8 +1,1 @@
-.footer {
-  background: var(--bg-secondary);
-  padding: 2rem 0;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  margin-top: 4rem;
-}
+.footer{padding:2.5rem 0;text-align:center;background:var(--text-primary);color:rgba(255,255,255,.6);font-size:.84rem;letter-spacing:.04em}
