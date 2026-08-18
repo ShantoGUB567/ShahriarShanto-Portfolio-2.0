@@ -37,6 +37,10 @@ export interface Project {
     playStore?: string;
     appStore?: string;
     testFlight?: string;
+    testFlightCustomer?: string;
+    testFlightDriver?: string;
+    testFlightClient?: string;
+    testFlightConductor?: string;
     openTesting?: string;
     github?: string;
   };
@@ -132,7 +136,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       period: 'April 2024 - December 2025',
       title: 'Assistant Invigilator',
       company: 'NAT Test (Nihongo Achievement Test), Green University of Bangladesh',
-      description: 'Assisted in organizing and supervising examination sessions, ensuring proper conduct of test procedures, maintaining discipline, and supporting administrative tasks for smooth examination management.'
+      description: 'Supervised examination sessions in strict compliance with standard Japanese NAT-TEST invigilation protocols and examination security guidelines. Managed candidate identity verification, test paper handling, and overall examination integrity under rigid timelines.'
     }
   ],
 
@@ -164,6 +168,70 @@ export const PORTFOLIO_DATA: PortfolioData = {
   // Personal Project
   projects: [
     {
+      title: 'ZipBee – Customer & Driver Apps',
+      description: 'A parcel-sharing and multi-destination delivery platform with real-time tracking, Google Maps route navigation, and in-app chat.',
+      longDescription: `ZipBee is a parcel-sharing and delivery platform consisting of two mobile applications: ZipBee Customer and ZipBee Driver.
+
+The platform allows customers to create parcel delivery requests from one location to multiple destinations. Drivers can browse and accept delivery requests and complete the delivery by following the assigned routes.
+
+Key Features & Responsibilities:
+• Developed cross-platform mobile applications using Flutter.
+• Implemented parcel delivery request creation and management for customers.
+• Developed driver-side functionality for accepting and managing delivery tasks.
+• Integrated Google Maps with advanced mapping features for location-based operations.
+• Implemented in-app navigation and route guidance to help drivers navigate between pickup and delivery locations.
+• Integrated REST APIs for communication between the mobile applications and backend services.
+• Implemented real-time chat between customers and drivers for delivery-related communication.
+• Integrated push notifications for order updates, delivery status changes, and important events.
+• Implemented location-based functionality and delivery tracking features.
+• Designed responsive and user-friendly interfaces for both customer and driver applications.
+• Worked with asynchronous API communication, real-time data updates, and application state management.
+• Handled different delivery states and user flows from order creation to successful completion.
+
+Applications:
+• ZipBee Customer: Create and manage parcel delivery requests.
+• ZipBee Driver: Find, accept, navigate, and complete delivery requests.`,
+      image: '/assets/projects/zipbee.png',
+      technologies: ['Flutter', 'Dart', 'Google Maps', 'REST API', 'Real-Time Chat', 'Push Notifications'],
+      links: {
+        testFlightCustomer: 'https://testflight.apple.com/join/Mn1htZrs',
+        testFlightDriver: 'https://testflight.apple.com/join/G1J4JY1A'
+      }
+    },
+    {
+      title: 'Taco – Client & Conductor Apps',
+      description: 'A ride-sharing and parcel-sharing platform featuring dynamic price negotiation, Google Maps navigation, and real-time chat.',
+      longDescription: `Taco is a ride-sharing and parcel-sharing platform consisting of two mobile applications: Taco Client and Taco Conductor.
+
+The platform enables clients to create either ride requests or parcel delivery requests. Conductors can respond to these requests, and both parties can communicate through real-time chat to negotiate and finalize the delivery or ride cost.
+
+Key Features & Responsibilities:
+• Developed cross-platform mobile applications using Flutter.
+• Implemented both ride-sharing and parcel-sharing workflows.
+• Developed client-side functionality for creating ride and parcel requests.
+• Developed conductor-side functionality for discovering, responding to, and managing requests.
+• Implemented real-time negotiation between clients and conductors to determine the final service cost.
+• Integrated Google Maps and advanced location-based features.
+• Implemented in-app navigation and route guidance for conductors during trips and deliveries.
+• Integrated REST APIs for authentication, request management, pricing, trip/delivery operations, and other backend communication.
+• Implemented real-time chat for communication and price negotiation.
+• Integrated push notifications for request updates, negotiations, trip status, and other important events.
+• Implemented location and route-related functionality for ride and parcel operations.
+• Managed different states and workflows for ride requests, parcel requests, negotiations, and completed services.
+• Built responsive and user-friendly interfaces for both clients and conductors.
+• Worked with asynchronous operations, API integration, real-time communication, and state management.
+
+Applications:
+• Taco Client: Create ride/parcel requests, communicate with conductors, and negotiate service costs.
+• Taco Conductor: Receive requests, negotiate with clients, navigate to destinations, and complete rides or deliveries.`,
+      image: '/assets/projects/taco.png',
+      technologies: ['Flutter', 'Dart', 'Google Maps', 'REST API', 'Real-Time Chat', 'Push Notifications'],
+      links: {
+        testFlightClient: 'https://testflight.apple.com/join/qtw85aeg',
+        testFlightConductor: 'https://testflight.apple.com/join/ap6qyAFS'
+      }
+    },
+    {
       title: 'Sippd.Coffee',
       description: 'A location-based coffee discovery and review platform with Firebase authentication, REST API integration, and AI-driven insights.',
       longDescription: 'Sippd.Coffee is a location-based coffee discovery and review platform with Firebase authentication, REST API integration, and AI-driven insights, enabling users to explore nearby cafés, submit ratings, and share real-time feedback.',
@@ -188,9 +256,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       title: 'NW RMG Website',
       description: 'A professional business website for NW RMG, showcasing apparel products, sustainable manufacturing processes...',
-      longDescription: 'NW RMG Website is a highly responsive web application designed for a premium Ready-Made Garments (RMG) manufacturer. It allows international buyers to explore clothing categories, inspect production certifications, view facilities, and submit detailed order inquiries. Built to load fast and rank well on search engines.',
+      longDescription: 'NW RMG Website is a highly responsive modern web application built with Angular for a premium Ready-Made Garments (RMG) manufacturer. It allows international buyers to explore clothing categories, inspect production certifications, view facilities, and submit detailed order inquiries.',
       image: '/assets/projects/nw-rmg.png',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'MongoDB'],
+      technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'JavaScript'],
       links: {
         live: 'https://www.nw-rmg.com/',
         // github: 'https://github.com/ShantoGUB567/nw-rmg'
